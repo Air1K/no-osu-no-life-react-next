@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  font-size: 18px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,6 +16,7 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
 body {
   /*color: rgb(var(--foreground-rgb));*/
   /*background: linear-gradient(*/
@@ -24,6 +26,7 @@ body {
   /*  )*/
   /*  rgb(var(--background-start-rgb));*/
 }
+
 @layer base {
   @font-face {
     font-family: 'Rubik';
@@ -51,4 +54,57 @@ body {
 body{
   margin: 0;
   padding: 0;
+}
+
+::-webkit-scrollbar {
+  display: none
+}
+
+.snow_wrap{
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+.snow, .snow:before{
+  position: absolute;
+  top: -650px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: radial-gradient(4px 4px at 100px 50px, #fff , transparent), radial-gradient(6px 6px at 210px 190px, #fff, transparent), radial-gradient(3px 3px at 320px 150px, #fff 50%, transparent), radial-gradient(4px 4px at 440px 300px, #fff 50%, transparent), radial-gradient(6px 6px at 130px 500px, #fff 50%, transparent), radial-gradient(3px 3px at 50px 200px, #fff 50%, transparent), radial-gradient(4px 4px at 150px 300px, #fff 50%, transparent), radial-gradient(6px 6px at 250px 400px, #fff 50%, transparent), radial-gradient(3px 3px at 350px 500px, #fff 50%, transparent);
+  background-size: 550px 550px;
+  animation: snow 5s linear infinite;
+  content: "";
+}
+
+.snow:after{
+  margin-left: -250px;
+  opacity: 0.5;
+  filter: blur(2px);
+  animation-duration: 9s;
+  animation-direction: reverse;
+}
+
+.snow:before{
+  margin-left: -350px;
+  opacity: 0.7;
+  filter: blur(1px);
+  animation-duration: 7s;
+  animation-direction: reverse;
+}
+
+@keyframes snow{
+  0%{
+    transform: translateY(0px) translateX(0px);
+  }
+  50%{
+    transform: translateY(275px) translateX(10px);
+  }
+  100%{
+    transform: translateY(550px) translateX(0px);
+  }
 }
